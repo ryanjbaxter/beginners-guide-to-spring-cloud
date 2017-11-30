@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      # =====================================
+      - id: greeting
+        uri: lb://greeting

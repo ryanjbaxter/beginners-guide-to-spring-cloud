@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: nameRoot
+        uri: lb://name
+        predicates:
+        - Path=/name/**
+        filters:
+        - RewritePath=/name(?<segment>.*), $\{segment}
+      - id: greeting
+        uri: lb://greeting
+        predicates:
+        - Path=/greeting/**
+        filters:
+        - RewritePath=/greeting(?<segment>.*), $\{segment}
