@@ -23,7 +23,7 @@ public class GreetingApplicationTests {
 		String deGreeting = this.rest.getForObject("/de", String.class);
 		String enGreeting = this.rest.getForObject("/en", String.class);
 		String esGreeting = this.rest.getForObject("/es", String.class);
-		String defaultGreeting = this.rest.getForObject("/foo", String.class);
+		String defaultGreeting = this.rest.getForObject("/", String.class);
 		assertEquals("Hallo", deGreeting);
 		assertEquals("Hello", enGreeting);
 		assertEquals("Hola", esGreeting);
