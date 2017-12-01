@@ -35,6 +35,6 @@ public class WebApplicationTests {
 		headers.add("Accept-Language", "es");
 		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 		ResponseEntity<String> greetingResp = rest.exchange("/", HttpMethod.GET, entity, String.class);
-		assertEquals(greetingResp.getBody(), "Hola Ryan");
+		assertEquals("Hola Ryan", greetingResp.getBody());
 	}
 }

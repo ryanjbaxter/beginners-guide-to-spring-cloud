@@ -33,13 +33,13 @@ public class GreetingServiceTest {
 
 	@Test
 	public void getGreeting() throws Exception {
-		assertEquals(greetingService.getGreeting(), "Hello");
+		assertEquals("Hello", greetingService.getGreeting());
 	}
 
 	@Test
 	public void getGreetingWithLocale() throws Exception {
-		assertEquals(greetingService.getGreeting("en"), "Hello");
-		assertEquals(greetingService.getGreeting("es"), "Hola");
+		assertEquals("Hello", greetingService.getGreeting("en"));
+		assertEquals("Hola", greetingService.getGreeting("es"));
 	}
 
 }

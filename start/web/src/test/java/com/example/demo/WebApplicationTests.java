@@ -24,7 +24,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {"spring.cloud.config.enabled:false"})
 public class WebApplicationTests {
 
 	@Autowired
@@ -45,6 +45,6 @@ public class WebApplicationTests {
 		headers.add("Accept-Language", "en");
 		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 		ResponseEntity<String> greeting = rest.exchange("/", HttpMethod.GET, entity, String.class);
-		assertEquals(greeting.getBody(), "Hello Ryan");
+		assertEquals("Hello Ryan", greeting.getBody());
 	}
 }

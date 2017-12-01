@@ -21,7 +21,7 @@ public class NameApplicationTests {
 	@Test
 	public void contextLoads() {
 		String name = rest.getForObject("/", String.class);
-		assertEquals(name, "Ryan");
+		assertEquals("Ryan", name);
 	}
 
 }
