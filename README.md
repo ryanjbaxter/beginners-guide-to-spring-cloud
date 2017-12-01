@@ -17,7 +17,7 @@ Before you run the applications in this repository you should install the [Sprin
 
 ### About The Apps
 
-There are three apps in the `start` and `complete` directories.  
+There are three apps in the `start` and four apps in the `complete` directories.  
 
 #### Name App
 The `name` app will return the value of the `name` property when making an HTTP `GET` request to `/`.
@@ -29,6 +29,10 @@ and pass a language code to return a greeting for that language.  For example a 
 #### Web App
 The `web` app makes a request to both the `greeting` and `name` app to construct the proper greeting when you make a `GET` to `/`.
 By changing the `Accept-Language` header you can change the language of the greeting returned.  For example if you set the `Accept-Language` header to `de` the greeting returned will be `Hallo Ryan`.
+
+#### Gateway Web App
+This app has the same functionality as the `web` app but leverages the new Spring Cloud Gateway project and uses Spring Boot 2.0.0.
+It is only present in the `complete` directory.
 
 ### Running The Apps
 
