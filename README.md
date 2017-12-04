@@ -1,6 +1,6 @@
 # Beinner's Guide To Spring Cloud
 
-This is the repository for the Beginner's Guide to Spring Cloud talk.  You can find the slides [here]().
+This is the repository for the Beginner's Guide to Spring Cloud talk.  You can find the slides [here](https://speakerdeck.com/ryanjbaxter/beginners-guide-to-spring-cloud-1).
 
 ## Using This Repo
 
