@@ -11,6 +11,7 @@ import org.springframework.cloud.sleuth.Sampler;
 import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -30,7 +31,7 @@ public class WebSpringCloudGatewayApplication {
 	static class GatewayConfiguration {
 		@Bean
 		public RouterFunction<ServerResponse> monoRouterFunction(NameHandler nameHandler, GreetingHandler greetingHandler) {
-			return route(GET("/"), serverRequest -> ServerResponse.ok().body(
+			return route(GET("/"), serverRequest -> ServerResponse.ok().contentType(MediaType.TEXT_HTML).body(
 							greetingHandler.getGreetingStringMono(serverRequest.headers().asHttpHeaders().
 									getAcceptLanguageAsLocales().get(0).toLanguageTag()).concatWith(Mono.just(" ")).
 									concatWith(nameHandler.getNameStringMono()), String.class));
@@ -42,7 +43,7 @@ public class WebSpringCloudGatewayApplication {
 		}
 
 		@Bean
-		//TODO the LoadBalanceExchangeFulterFunction can be removed once we have a load balanced WebClient
+		//TODO the LoadBalanceExchangeFilterFunction can be removed once we have a load balanced WebClient
 		public WebClient webClient(WebClient.Builder webClientBuilder, LoadBalancerExchangeFilterFunction lbef) {
 			return webClientBuilder.filter(lbef).build();
 		}
