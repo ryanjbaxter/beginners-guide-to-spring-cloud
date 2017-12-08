@@ -9,3 +9,8 @@ names:
   - Jon
   - Marcin
   - Adrian
+
+eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
