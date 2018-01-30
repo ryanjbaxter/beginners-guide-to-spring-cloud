@@ -7,10 +7,10 @@ spring:
         predicates:
         - Path=/name/**
         filters:
-        - RewritePath=/name(?<segment>.*), $\{segment}
+        - StripPrefix
       - id: greeting
         uri: lb://greeting
         predicates:
         - Path=/greeting/**
         filters:
-        - RewritePath=/greeting(?<segment>.*), $\{segment}
+        - StripPrefix
