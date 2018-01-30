@@ -7,10 +7,10 @@ spring:
         predicates:
         - Path=/name/**
         filters:
-        - StripPrefix
+        - StripPrefix=1
       - id: greeting
         uri: lb://greeting
         predicates:
         - Path=/greeting/**
         filters:
-        - StripPrefix
+        - StripPrefix=1
